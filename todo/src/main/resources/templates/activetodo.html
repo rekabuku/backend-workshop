@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link href="/webjars/bootstrap/3.3.7-1/css/bootstrap.min.css" rel="stylesheet"/>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Todos for today:</h1>
+<table>
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>URGENT</th>
+        <th>ACTION</th>
+        <th>DONE</th>
+    </tr>
+    </thead>
+    <th:block th:each="task : ${todos}" th:if=" ${!done} == ${task.done}">
+        <tr>
+            <td th:text="${task.id}"/>
+            <td th:text="${task.urgent}"/>
+            <td th:text="${task.title}"/>
+            <td th:text="${task.done}"/>
+        </tr>
+    </th:block>
+</table>
+
+</body>
+<script src="webjars/jquery/1.11.1/jquery.min.js"></script>
+<script src="webjars/bootstrap/3.3.7-1/js/bootstrap.min.js"></script>
+</html>

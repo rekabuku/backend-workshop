@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link href="webjars/bootstrap/3.3.7-1/css/bootstrap.min.css" rel="stylesheet"/>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Todos for today:</h1>
+<a href="/todo/add" class="btn btn-warning btn-lg">Add new todo</a>
+<br>
+<form th:action="@{|/todo/search|}" method="get">
+    <input type="text" name="search" placeholder="Search for todo">
+    <button class="btn btn-success" type="submit">Search</button>
+</form>
+<table class="table table-hover">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>URGENT</th>
+        <th>ACTION</th>
+        <th>DONE</th>
+        <th>DELETE</th>
+        <th>EDIT</th>
+    </tr>
+    </thead>
+    <th:block th:each="task : ${todos}">
+        <tr>
+            <td th:text="${task.id}"/>
+            <td>
+                <span th:classappend="${task.urgent == true} ? 'glyphicon glyphicon-ok' : 'glyphicon glyphicon-remove'"/>
+            </td>
+            <td th:text="${task.title}"/>
+            <td>
+                <span th:classappend="${task.done == true}  ? 'glyphicon glyphicon-ok' : 'glyphicon glyphicon-remove'"/>
+            </td>
+            <td><a th:href="@{|/todo/${task.id}/delete|}" class="btn btn-danger">Delete</a></td>
+            <td><a th:href="@{|/todo/${task.id}/edit|}" class="btn btn-info">Edit</a></td>
+        </tr>
+    </th:block>
+</table>
+
+</body>
+<script src="webjars/jquery/1.11.1/jquery.min.js"></script>
+<script src="webjars/bootstrap/3.3.7-1/js/bootstrap.min.js"></script>
+</html>
