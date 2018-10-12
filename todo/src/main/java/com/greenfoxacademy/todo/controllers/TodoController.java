@@ -84,6 +84,16 @@ public class TodoController {
         return "search";
     }
 
+    @GetMapping("/todo/login")
+    public String login() {
+        return "login";
+    }
+
+    @PostMapping("/todo/login")
+    public String loginSucceeded() {
+        return "redirect:/todo/";
+    }
+
     @GetMapping("/api/list")
     @ResponseBody
     public Iterable<Todo> findTodos() {
