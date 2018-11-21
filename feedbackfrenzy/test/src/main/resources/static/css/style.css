@@ -1,0 +1,23 @@
+.header-img {
+    border-radius: 50%;
+    height: 32px;
+}
+
+body {
+    padding-top: 64px;
+    padding-bottom: 32px;
+}
+
+.fox-draw {
+    stroke: black;
+    stroke-width: 1.5px;
+    stroke-dasharray: 3626 3628;
+    stroke-dashoffset: 3627;
+    animation: fox-draw-animation 4000ms cubic-bezier(1, 0, 0, 1) 500ms forwards;
+}
+
+@keyframes fox-draw-animation {
+    100% {
+        stroke-dashoffset: 0;
+    }
+}

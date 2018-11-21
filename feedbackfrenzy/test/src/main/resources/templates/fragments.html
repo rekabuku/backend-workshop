@@ -1,0 +1,43 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:fragment="headerfiles">
+    <meta charset="UTF-8"/>
+    <div th:fragment="bootstrap">
+        <link href="/css/style.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://bootswatch.com/4/lux/bootstrap.min.css" media="screen">
+    </div>
+    <link href="/style.css" rel="stylesheet">
+</head>
+<body>
+
+<!--Feedback Frenzy Header-->
+
+<div th:fragment="header">
+    <nav class="py-1 navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
+        <div class="container">
+            <div class="navbar-brand">
+                <img class="header-img" src="img/greenfox.png">
+                <a class="navbar-brand" href="">Feedback Frenzy</a>
+            </div>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+                    aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        </div>
+    </nav>
+</div>
+
+<!--Feedback Frenzy Fox Draw-->
+
+<div th:fragment="foxdraw" id="logo" class="fox-logo">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -20 260 260" width="251" height="235"
+         class="fox-logo-svg">
+        <path fill="none" stroke="#ffffff"
+              d="M147.676 199.433l26.91-80.481 69.334 44.512zm-4.793 2.331l-9.228 13.773h-3.622l8.77-49.64 29.177-39.19zm-18.47 13.773L95.637 52.636h59.312l-28.78 162.901zm-7.486 0l-9.236-13.784-26.514-75.416 30.607 39.583 8.765 49.617zM6.613 163.448l67.872-44.67 28.346 80.627zm23.928-70.657l41.274 23.184-65.607 43.181zM22.184 7.503l67.603 43.2L31.08 86.844zm88.175 150.352L76.74 114.377 33.275 89.961l58.706-36.14zM158.603 53.82l58.67 36.116-44.997 24.622-31.996 42.984zm69.793-46.318l-8.892 79.34-58.707-36.14zm16.013 151.757l-67.128-43.099 42.755-23.393zm-21.406-69.457L233.068 0l-76.41 48.83H93.926L17.515 0l10.068 89.803L0 165.039l104.735 39.142 20.594 30.735 20.516-30.735 104.738-39.142z"
+              class="fox-draw">
+        </path>
+    </svg>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Questions - Feedback Frenzy</title>
+    <th:block th:include="fragments.html :: bootstrap"/>
+    <th:block th:include="fragments.html :: header"/>
+</head>
+<body>
+<header class="jumbotron my-4">
+    <div class="d-flex justify-content-between align-items-center">
+        <div class="d-flex flex-column">
+            <div class="p-2">
+                <h1 class="display-3">Feedback Frenzy</h1>
+            </div>
+            <div class="p-2">
+                <form action="/forms/groups/questions/add" method="post">
+                    <label for="name">Question name</label><br>
+                    <input type="text" id="name" name="name"><br>
+                    <label for="type">Question type</label><br>
+                    <input type="text" id="type" name="type"><br>
+                    <button class="btn btn-success" type="submit">Add</button>
+                    <br>
+                </form>
+            </div>
+            <div class="p-2">
+                <table class="table table-hover">
+                    <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>NAME</th>
+                        <th>TYPE</th>
+                        <th>DELETE</th>
+                        <th>EDIT</th>
+                    </tr>
+                    </thead>
+                    <th:block th:each="question : ${questions}">
+                        <tr>
+                            <td th:text="${question.id}"/>
+                            <td th:text="${question.name}"/>
+                            <td th:text="${question.type}"/>
+                            <td>
+                                <form th:action="@{|/forms/groups/questions/delete/${question.id}|}" method="post">
+                                    <input class="btn btn-danger" type="submit" value="Delete">
+                                </form>
+                            </td>
+                            <td>
+                                <form th:action="@{|/forms/groups/questions/edit/${question.id}|}" method="get">
+                                    <input class="btn btn-info" type="submit" value="Edit">
+                                </form>
+                            </td>
+                        </tr>
+                    </th:block>
+                </table>
+            </div>
+        </div>
+        <th:block th:include="fragments.html :: foxdraw"/>
+    </div>
+</header>
+</body>
+</html>
